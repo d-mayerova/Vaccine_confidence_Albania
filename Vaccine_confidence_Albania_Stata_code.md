@@ -1,5 +1,4 @@
 Vaccine confidence and timeliness of childhood immunisation by health information source, socioeconomic, and geographic characteristics in Albania: 2017-2018 Demographic and Health Survey analysis
-
 ========================================================================================================
 
 Daniela Mayerová (1), Kaja Abbas (2)
