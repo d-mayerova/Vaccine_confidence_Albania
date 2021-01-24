@@ -2,6 +2,7 @@ Vaccine confidence and timeliness of childhood immunisation by health informatio
 ========================================================================================================
 
 Daniela Mayerová (1), Kaja Abbas (2)
+
 1 Faculty of Epidemiology and Population Health, London School of Hygiene & Tropical Medicine, London, WC1E 7HT, United Kingdom
 
 2 Department of Infectious Disease Epidemiology, London School of Hygiene & Tropical Medicine, London, WC1E 7HT, United Kingdom
@@ -11,13 +12,21 @@ Daniela Mayerová (1), Kaja Abbas (2)
 **STATA CODE:**
 
 **Descriptive analysis of the dataset including all observations and crude OR of vaccine confidence**:
+
 summarize v005 if internet==0
+
 display r(sum)
+
 summarize v005 if internet==1
+
 display r(sum)
+
 svy:proportion internet
+
 svy:proportion conf, over(internet)
+
 svy:logistic conf i.internet
+
 
 summarize v005 if vaccinetrust==1
 display r(sum)
