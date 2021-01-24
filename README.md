@@ -4,7 +4,9 @@ Vaccine confidence and timeliness of childhood immunisation by health informatio
 Daniela Mayerová (1), Kaja Abbas (2)
 
 1 Faculty of Epidemiology and Population Health, London School of Hygiene & Tropical Medicine, London, WC1E 7HT, United Kingdom
+
 2 Department of Infectious Disease Epidemiology, London School of Hygiene & Tropical Medicine, London, WC1E 7HT, United Kingdom
+
 
 
 
