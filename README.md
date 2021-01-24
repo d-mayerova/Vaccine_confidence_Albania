@@ -8,6 +8,7 @@ Daniela Mayerová (1), Kaja Abbas (2)
 2 Department of Infectious Disease Epidemiology, London School of Hygiene & Tropical Medicine, London, WC1E 7HT, United Kingdom
 
 
+
 This file includes details on the dataset used and definition of variables. Stata code is available in the file Vaccine_confidence_Albania_Stata_code.
 
 
