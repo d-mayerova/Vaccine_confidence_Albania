@@ -21,7 +21,7 @@ This file includes details on the dataset used and definition of variables. Stat
 * **b4** = Child gender:	1=male, 2=female
 * **births23** = Mother had 2 or 3 births: 0=no, 1=yes
 * **bord** = Child birth order: 1=firstborn, 2=secondborn, 3=thirdborn or more
-* **conf** = Vaccine confident (did not postponed and/or delayed vaccination: 0=no, 1=yes
+* **conf** = Vaccine confident (did not postponed and/or delayed vaccination): 0=no, 1=yes
 * **edu_husband_higher** = Education of husband/partner: 1=higher education, 2=secondary education, 3=primary education, 4=no education
 * **edu_husband_no_prim** = Education of husband/partner: 1=higher education, 2=secondary education, 3=no/primary education
 * **edu_mother_higher** = Education of mother:	1=higher education, 2=secondary education, 3=primary education, 4=no education
