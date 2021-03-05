@@ -1,4 +1,4 @@
-Vaccine confidence and timeliness of childhood immunisation by health information source, socioeconomic, and geographic characteristics in Albania: 2017-2018 Demographic and Health Survey analysis
+Vaccine confidence and timeliness of childhood immunisation by health information source, maternal, socioeconomic, and geographic characteristics in Albania
 ============================================================
 
 Daniela Mayerová (1), Kaja Abbas (2)
@@ -23,7 +23,6 @@ This file includes details on the dataset used and definition of variables. Stat
 * **bord** = Child birth order: 1=firstborn, 2=secondborn, 3=thirdborn or more
 * **conf** = Vaccine confident (did not postponed and/or delayed vaccination): 0=no, 1=yes
 * **edu_husband_higher** = Education of husband/partner: 1=higher education, 2=secondary education, 3=primary education, 4=no education
-* **edu_husband_no_prim** = Education of husband/partner: 1=higher education, 2=secondary education, 3=no/primary education
 * **edu_mother_higher** = Education of mother:	1=higher education, 2=secondary education, 3=primary education, 4=no education
 * **ethni2** = Ethnicity of mother:	1=Albanian, 2=other
 * **ethni3** = Ethnicity of mother:	1=Albanian, 2=Egyptian, 3=other
