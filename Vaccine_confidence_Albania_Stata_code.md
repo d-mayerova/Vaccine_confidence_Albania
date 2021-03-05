@@ -1,4 +1,4 @@
-Vaccine confidence and timeliness of childhood immunisation by health information source, socioeconomic, and geographic characteristics in Albania: 2017-2018 Demographic and Health Survey analysis
+Vaccine confidence and timeliness of childhood immunisation by health information source, maternal, socioeconomic, and geographic characteristics in Albania
 ========================================================================================================
 
 Daniela Mayerová (1), Kaja Abbas (2)
@@ -430,19 +430,23 @@ display r(sum)
 
 svy:logistic conf i.relig3
 
-summarize v005 if edu_husband_no_prim==1
+summarize v005 if edu_husband_higher==1
 
 display r(sum)
 
-summarize v005 if edu_husband_no_prim==2
+summarize v005 if edu_husband_higher==2
 
 display r(sum)
 
-summarize v005 if edu_husband_no_prim==3
+summarize v005 if edu_husband_higher==3
 
 display r(sum)
 
-svy:logistic conf i.edu_husband_no_prim
+summarize v005 if edu_husband_higher==4
+
+display r(sum)
+
+svy:logistic conf i.edu_husband_higher
 
 summarize v005 if region==1
 
@@ -488,95 +492,22 @@ display r(sum)
 
 svy:logistic conf i.internet
 
-svy:logistic conf i.edu_mother_higher i.ethni2 i.relig3 i.edu_husband_no_prim i.region
+svy:logistic conf i.edu_mother_higher i.edu_husband_higher i.region i.work12 i.work12_husband i.internet
 
 testparm i.edu_mother_higher
 
 testparm i.relig3
 
-testparm i.edu_husband_no_prim
-
-testparm i.region
-
-svy:logistic conf i.edu_mother_higher i.ethni2 i.relig3 i.edu_husband_no_prim i.region i.work12 i.work12_husband i.internet
-
-testparm i.edu_mother_higher
-
-testparm i.relig3
-
-testparm i.edu_husband_no_prim
+testparm i.edu_husband_higher
 
 testparm i.region
 
 
-svy:logistic conf i.edu_mother_higher##i.internet i.ethni2 i.relig3 i.edu_husband_no_prim i.region i.work12 i.work12_husband
+svy:logistic conf i.edu_mother_higher##i.internet i.edu_husband_higher i.region i.work12 i.work12_husband
 testparm i.edu_mother_higher#i.internet
 
-svy:logistic conf i.edu_mother_higher i.ethni2 i.relig3 i.edu_husband_no_prim i.region i.work12## i.work12_husband i.internet
+svy:logistic conf i.edu_mother_higher i.edu_husband_higher i.region i.work12## i.work12_husband i.internet
 testparm i.work12#i.work12_husband
 
-
-
-**Sensitivity analysis**:
-
-svy:proportion internet, over(births23)
-
-svy:logistic births23 i.internet
-
-svy:proportion vaccinetrust, over(births23)
-
-svy:logistic births23 i.vaccinetrust
-
-svy:proportion agecat3, over(births23)
-
-svy:logistic births23 i.agecat3
-
-svy:proportion edu_mother_higher, over(births23)
-
-svy:logistic births23 i.edu_mother_higher
-
-svy:proportion ethni3, over(births23)
-
-svy:logistic births23 i.ethni3
-
-svy:proportion relig3, over(births23)
-
-svy:logistic births23 i.relig3
-
-svy:proportion married, over(births23)
-
-svy:logistic births23 i.married
-
-svy:proportion work12, over(births23)
-
-svy:logistic births23 i.work12
-
-svy:proportion b4, over(births23)
-
-svy:logistic births23 i.4b
-
-svy:proportion v190, over(births23)
-
-svy:logistic births23 i.v190
-
-svy:proportion v151, over(births23)
-
-svy:logistic births23 i.v151
-
-svy:proportion edu_husband_higher, over(births23)
-
-svy:logistic births23 i.edu_husband_higher
-
-svy:proportion work12_husband, over(births23)
-
-svy:logistic births23 i.work12_husband
-
-svy:proportion residence, over(births23)
-
-svy:logistic births23 i.residence
-
-svy:proportion region, over(births23)
-
-svy:logistic births23 i.region
 
 
