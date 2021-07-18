@@ -1,4 +1,4 @@
-Vaccine confidence and timeliness of childhood immunisation by health information source, maternal, socioeconomic, and geographic characteristics in Albania
+Childhood immunisation timeliness and vaccine confidence by health information source, maternal, socioeconomic, and geographic characteristics in Albania
 ============================================================
 
 Daniela Mayerová (1), Kaja Abbas (2)
@@ -20,8 +20,8 @@ This file includes details on the dataset used and definition of variables. Stat
 * **agecat3** = Age at birth: 0=<25 years, 1=25-29 years, 2=≥30 years
 * **b4** = Child gender:	1=male, 2=female
 * **births23** = Mother had 2 or 3 births: 0=no, 1=yes
-* **bord** = Child birth order: 1=firstborn, 2=secondborn, 3=thirdborn or more
-* **conf** = Vaccine confident (did not postponed and/or delayed vaccination): 0=no, 1=yes
+* **child_bord** = Child birth order: 1=firstborn, 2=secondborn, 3=thirdborn or more
+* **conf** = Vaccine confident (did not postponed and/or delayed vaccination due to other reasons than sickness of the child or lack of time): 0=no, 1=yes
 * **edu_husband_higher** = Education of husband/partner: 1=higher education, 2=secondary education, 3=primary education, 4=no education
 * **edu_mother_higher** = Education of mother:	1=higher education, 2=secondary education, 3=primary education, 4=no education
 * **ethni2** = Ethnicity of mother:	1=Albanian, 2=other
@@ -36,11 +36,11 @@ This file includes details on the dataset used and definition of variables. Stat
 * **s513** = Reasons for postponing childhood immunization: 1=doubts about vaccine safety, 2=concerns about side effects, 3=child was sick at the time of vaccination, 4=did not have time/too busy, 5=no particular reason, 6=other
 * **s514** = Ever decided not to have child (children) immunized: 0=no, 1=yes
 * **s515** = Reasons for refusing childhood immunization: 1=doubts about vaccine safety, 2=concerns about side effects, 3=child was sick at the time of vaccination, 4=medical contraindication, 5=vaccine more harmful than disease, 6=religious conviction, 7=other
+* **time** = Immunised according to schedules: 0=no, 1=yes 
 * **v005** = Women's individual sample weight: 6 decimals
 * **v151** = Sex of household head: 1=male, 2=female
 * **v190** = Household wealth: 1=poorest, 2=poorer, 3=middle, 4=richer, 5=richest
 * **vaccinetrust** =	Trusted source of information on vaccines: 1=healthcare professionals (doctors/nurses, community healthcare workers), 2=traditional media (TV, radio, newspapers, journals), 3=Internet/social media, 4=family/other
-* **vaccinetrust2** = Trusted source of information on vaccines:	1=healthcare professionals (doctors/nurses, community healthcare workers), 2=other
 * **wealth3** = Household wealth: 1=poorest/poorer, 2=middle, 3=richer/richest
 * **work12** = Mother worked outside the home last 12 months: 0=not worked, 1=worked/partially worked 
 * **work12_husband** =	Husband/partner worked last 12 months: 0=not worked/”don’t know”, 1=worked/partially worked
