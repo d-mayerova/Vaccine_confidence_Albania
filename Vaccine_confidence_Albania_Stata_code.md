@@ -482,6 +482,8 @@ drop if s514==3
 
 gen conf=time
 
+**Descriptive analysis, crude ORs**
+
 summarize v005 if internet==0
 
 display r(sum)
