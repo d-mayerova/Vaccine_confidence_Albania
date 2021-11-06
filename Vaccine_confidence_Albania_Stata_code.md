@@ -12,9 +12,84 @@ Daniela Mayerová (1), Kaja Abbas (2)
 
 **STATA CODE:**
 
+**PREPARATION, RECODING**
+
+use "C:\DHS\ALKR71FL.DTA" 
+
+gen weight = v005/1000000
+
+svyset v021 [pw=weight], strata(v022)
+
+gen internet=s121
+
+recode internet 4=1 1 2 3 5 6 7 8=0
+
+gen vaccinetrust=s516
+
+recode vaccinetrust 1 2=1 3 4=2 5=3 6 7=4
+
+gen age_at_birth=v012-b8
+
+egen agecat3=cut(age_at_birth), at(15,25,30,46)
+
+gen child_bord=bord
+
+recode child_bord 1=1 2=2 3 4 5 6 7 8=3
+
+gen edu_mother_higher=v106
+
+recode edu_mother_higher 3=1 2=2 1=3 0=4
+
+gen edu_husband_higher=v701
+
+recode edu_husband_higher 3=1 2=2 1=3 0=4
+
+gen ethni3=v131
+
+recode ethni3 1=1 2=2 3 4 6 996=3
+
+gen married=v501
+
+recode married 1 2=1 0 3 4 5=0
+
+gen relig3=v130
+
+recode relig3 1=1 3=2 2 4 6 96=3
+
+gen work12=v731
+
+recode work12 0=0 1 2 3=1
+
+gen work12_husband=v704a
+
+recode work12_husband 0 8 =0 1 2=1
+
+gen residence=v025
+
+gen prefecture=v101
+
+gen region=prefecture
+
+gen time=s512==0-s514==0
+
+recode time 0=1 1=0
+
+save "C:\DHS\Children_defined_variables.dta"
+
+exit, clear
+ 
+
 **IMMUNISATION TIMELINESS**
 
-**Descriptive analysis of the dataset including all observations and crude OR of immunisation timeliness**:
+use "C:\DHS\Children_defined_variables.dta"
+
+drop if internet==.
+
+drop if work12_husband==.
+
+drop if edu_husband_higher==.
+
+**Descriptive analysis, crude ORs**
 
 summarize v005 if internet==0
 
@@ -29,7 +104,6 @@ svy:proportion internet
 svy:proportion time, over(internet)
 
 svy:logistic time i.internet
-
 
 summarize v005 if vaccinetrust==1
 
@@ -329,7 +403,6 @@ svy:proportion time, over(prefecture)
 
 svy: logistic time ib11.prefecture
 
-
 summarize v005 if s513==1
 
 display r(sum)
@@ -386,97 +459,28 @@ display r(sum)
 
 svy:proportion s515
 
+**Multivariable analysis**
 
+svy:logistic time i.internet i.edu_mother_higher i.work12 i.edu_husband_higher i.work12_husband i.region
 
-**Descriptive analysis of the dataset including observations with complete data on explanatory variables, crude OR, adjusted ORs from hierarchical multivariable logistic regression**:
+save "C:\DHS\Children_timeliness.dta"
 
-summarize v005 if edu_mother_higher==1
-
-display r(sum)
-
-summarize v005 if edu_mother_higher==2
-
-display r(sum)
-
-summarize v005 if edu_mother_higher==3
-
-display r(sum)
-
-summarize v005 if edu_mother_higher==4
-
-display r(sum)
-
-svy:logistic time i.edu_mother_higher
-
-summarize v005 if edu_husband_higher==1
-
-display r(sum)
-
-summarize v005 if edu_husband_higher==2
-
-display r(sum)
-
-summarize v005 if edu_husband_higher==3
-
-display r(sum)
-
-summarize v005 if edu_husband_higher==4
-
-display r(sum)
-
-svy:logistic time i.edu_husband_higher
-
-summarize v005 if region==1
-
-display r(sum)
-
-summarize v005 if region==2
-
-display r(sum)
-
-summarize v005 if region==3
-
-display r(sum)
-
-svy: logistic time i.region
-
-summarize v005 if work12==0
-
-display r(sum)
-
-summarize v005 if work12==1
-
-display r(sum)
-
-svy:logistic time i.work12
-
-summarize v005 if work12_husband==0
-
-display r(sum)
-
-summarize v005 if work12_husband==1
-
-display r(sum)
-
-svy:logistic time i.work12_husband
-
-summarize v005 if internet==0
-
-display r(sum)
-
-summarize v005 if internet==1
-
-display r(sum)
-
-svy:logistic time i.internet
-
-svy:logistic time i.edu_mother_higher i.edu_husband_higher i.region i.work12 i.work12_husband i.internet
-
+exit, clear
 
 
 **VACCINE CONFIDENCE**
 
-**Descriptive analysis of the dataset including all observations and crude OR of vaccine confidence**:
+use "C:\DHS\Children_defined_variables.dta"
+
+drop if internet==.
+
+drop if s513==3
+
+drop if s513==4
+
+drop if s514==3
+
+gen conf=time
 
 summarize v005 if internet==0
 
@@ -491,7 +495,6 @@ svy:proportion internet
 svy:proportion conf, over(internet)
 
 svy:logistic conf i.internet
-
 
 summarize v005 if vaccinetrust==1
 
@@ -791,7 +794,6 @@ svy:proportion conf, over(prefecture)
 
 svy: logistic conf ib11.prefecture
 
-
 summarize v005 if s513==1
 
 display r(sum)
@@ -848,59 +850,10 @@ display r(sum)
 
 svy:proportion s515
 
-
-
-**Descriptive analysis of the dataset including observations with complete data on explanatory variables, crude OR, adjusted ORs from hierarchical multivariable logistic regression**:
-
-
-summarize v005 if ethni3==1
-
-display r(sum)
-
-summarize v005 if ethni3==2
-
-display r(sum)
-
-svy:logistic conf i.ethni3
-
-
-summarize v005 if region==1
-
-display r(sum)
-
-summarize v005 if region==2
-
-display r(sum)
-
-summarize v005 if region==3
-
-display r(sum)
-
-svy: logistic conf i.region
-
-summarize v005 if married==0
-
-display r(sum)
-
-summarize v005 if married==1
-
-display r(sum)
-
-svy:logistic conf i.married
-
-summarize v005 if internet==0
-
-display r(sum)
-
-summarize v005 if internet==1
-
-display r(sum)
-
-svy:logistic conf i.internet
+**Multivariable analysis**
 
 svy:logistic conf i.internet i.married i.ethni3 i.region 
 
+save "C:\DHS\Children_confidence.dta"
 
-
-
-
+exit, clear
